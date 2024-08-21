@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message Orders {
+  string id = 1;
+  string client_name = 2;
+  string sale_date = 3;
+  repeated OrderSale order_sales = 4;
+}
+
+message OrderSale {
+  string order_id = 1;
+  string product_id = 2;
+}
+
+service OrdersService {
+  rpc CreateOrders (Orders) returns (OrdersResponse) {}
+}
+
+message OrdersResponse {
+  string responseMessage = 1;
+}
+
